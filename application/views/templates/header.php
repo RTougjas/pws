@@ -23,8 +23,9 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
 		<?php if( $locationID == 1 ) { ?>
-			<li><a href="<?php echo site_url("/FrontPage/loadLocation/$locationID");?>"><?php echo $this->lang->line('menuu');?></a></li>
-			<li><a href="<?php echo site_url("/FrontPage/loadLocation/$locationID");?>"><?php echo $this->lang->line('joogid');?></a></li>
+			<!-- Since displayMenu 2nd parameter is constant. it can be hardcoded. -->
+			<li><a href="<?php echo site_url("/FrontPage/displayMenu/$locationID/1");?>"><?php echo $this->lang->line('menuu');?></a></li>
+			<li><a href="<?php echo site_url("/FrontPage/displayMenu/$locationID/2");?>"><?php echo $this->lang->line('joogid');?></a></li>
 		<?php } else { ?>
 			<li class="dropdown">
                 <a href="<?php echo site_url("/FrontPage/loadLocation/$locationID");?>" class="dropdown-toggle" data-toggle="dropdown">
@@ -32,8 +33,8 @@
                     <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><?php echo $this->lang->line('soogid');?></a></li>
-                    <li><a href="#"><?php echo $this->lang->line('joogid');?></a></li>
+                    <li><a href="<?php echo site_url("/FrontPage/displayMenu/$locationID/1");?>"><?php echo $this->lang->line('soogid');?></a></li>
+                    <li><a href="<?php echo site_url("/FrontPage/displayMenu/$locationID/2");?>"><?php echo $this->lang->line('joogid');?></a></li>
 				</ul>
 			</li>
 		<?php } ?>

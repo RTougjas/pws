@@ -18,4 +18,10 @@ $lang['info_tartu'] = "<p>Ränduri pubi avatud Tasku keskuses. Sissepääs läbi
 
 
 
+// rahaühiku märk
+$lang['euro'] = "€";
+
+
+
+
 ?>

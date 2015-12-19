@@ -38,20 +38,58 @@ class MenuModel extends CI_Model {
 	}
 	
 	/**
-	*	return all menu items, according to given location. 
+	*	returns all menuitems of specified location. 
 	*
-	*	@param $location_id		describes which location item you want to get. 
+	*	@param $location_id		describes which location item you want to get.
+	*	@return menuItem_id, menuItem_name, menuItem_price, category_id, category_name,
+	*			location_id, location_name.
 	*
 	*/
 	public function getAllMenuItems($location_id) {
 		
 		$this->db->select('*');
-		$this->db->from('menuItems');
-		$this->db->where('location', $location_id);
+		$this->db->from('v_menu_items');
+		$this->db->where('location_id', $location_id);
 		$query = $this->db->get();
 		
 		return $query->result();
 		
+	}
+	
+	/**
+	*	return all categories of specified location.
+	*
+	*	@param $location_id	describes which location categories you want. It is so, that the 	*							same item could be in one category in one location, and in other 	*							location, it could be under different category.  
+	*	@return category_id, category_name, location_id, location_name, general_id, general_name.
+	*/	 
+	
+	public function getCategories($location_id) {
+		$this->db->select('*');
+		$this->db->from('v_categories');
+		$this->db->where('location_id', $location_id);
+		$query = $this->db->get();
+		
+		return $query->result();
+		
+	}
+	
+	/**
+	*	return all categories under specific general categories.
+	*	1 - food, 2 - beverages, 3 - rooms, 4 - other. (these can not be edited).
+	*	
+	*	For example. 	beer would have category "Beer" and generalCategory "beverages".
+	*					Coca-Cola would have category "Cold drinks" and generalCategory "beverages".	
+	*	@param $location_id 	describes the location.
+	*	@param $general_id		describes modifable category general category. 
+	*/
+	public function getSpecificCategories($location_id, $general_id) {
+		$this->db->select('*');
+		$this->db->from('v_categories');
+		$this->db->where('location_id', $location_id);
+		$this->db->where('general_id', $general_id);
+		$query = $this->db->get();
+		
+		return $query->result();
 	}
 	
 }

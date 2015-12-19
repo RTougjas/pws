@@ -32,9 +32,11 @@ class FrontPage extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 	
-	public function displayMenu($location_id) {
+	public function displayMenu($location_id, $general_id) {
 		
-		$data = $this->MenuModel->getAllMenuItems($location_id);
+		$data['categories'] = $this->MenuModel->getSpecificCategories($location_id, $general_id);
+		$data['menu_items'] = $this->MenuModel->getAllMenuItems($location_id);
+		
 		$this->load->view('templates/header');
 		$this->load->view('v_menu', $data);
 		$this->load->view('templates/footer');
