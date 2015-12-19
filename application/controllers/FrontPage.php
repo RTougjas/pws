@@ -41,4 +41,13 @@ class FrontPage extends CI_Controller {
 		$this->load->view('v_menu', $data);
 		$this->load->view('templates/footer');
 	}
+	
+	public function bookTable($location_id) {
+		
+		$this->load->view('templates/header');
+		$this->load->view('v_book_table');
+		$this->load->view('templates/footer');
+		
+		
+	}
 }
