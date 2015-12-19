@@ -1,9 +1,28 @@
 body {
 	background-color:black;
+	font-size:1.9em;
+	color: white;
 
 }
 
 .navbar  {
-	background-color: black;
+	border: 0;
+	background-color: #F7E69D;
 	opacity: 0.9;
+}
+
+#welcome_page_logo {
+	padding-top: 5%;
+}
+
+#welcome_page_logo_thumbnail {
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0;
+	background-color: black;
+}
+
+.navbar-nav li {
+	margin-left:3em;
+	margin-right:0.8em;
 }

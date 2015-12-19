@@ -46,4 +46,32 @@ ALTER TABLE reservationItems ADD CONSTRAINT fk_reservationItems_have_menuItems
 	FOREIGN KEY (menuItem) REFERENCES menuItem(ID) 
 	ON UPDATE CASCADE ON DELETE RESTRICT;
 	
+CREATE TABLE location (
+	ID INTEGER NOT NULL PRIMARY KEY,
+	name VARCHAR(10) NOT NULL,
+	aadress VARCHAR(100));
 	
+CREATE TABLE employee (
+	ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    firstName VARCHAR(15),
+    lastName VARCHAR(25),
+    title VARCHAR(25),
+    phone VARCHAR(15),
+    email VARCHAR(100));
+	
+ALTER TABLE employee ADD COLUMN location INTEGER NOT NULL;
+
+ALTER TABLE employee ADD CONSTRAINT fk_employee_has_location
+	FOREIGN KEY (location) REFERENCES location(ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+	
+ALTER TABLE menuItem ADD COLUMN
+	location INTEGER NOT NULL;
+	
+ALTER TABLE reservation ADD COLUMN
+	location INTEGER NOT NULL;
+	
+ALTER TABLE menuItem ADD CONSTRAINT fk_menuitem_has_location
+	FOREIGN KEY (location) REFERENCES location(ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+	
+ALTER TABLE reservation ADD CONSTRAINT fk_reservation_has_location
+	FOREIGN KEY (location) REFERENCES location(ID) ON UPDATE CASCADE ON DELETE RESTRICT;
