@@ -14,7 +14,7 @@
 		<div class="row" id="welcome_page_logo">
 		</div>
 		<div class="thumbnail" id="welcome_page_logo_thumbnail">
-			<img src="<?php echo base_url("images/logo.png")?>" alt="Võru" >
+			<img src="<?php echo base_url("images/logo2.png")?>" alt="Võru" class=img-circle>
 		</div>
 		<div class="row">
   	  		<div class="col lg-6 col-md-6 col-sm-6 col-xs-6">

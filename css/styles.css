@@ -7,7 +7,7 @@ body {
 
 .navbar  {
 	border: 0;
-	background-color: #F7E69D;
+	background-color: black;
 	opacity: 0.9;
 }
 
@@ -23,6 +23,20 @@ body {
 }
 
 .navbar-nav li {
-	margin-left:3em;
+	margin-left:2em;
 	margin-right:0.8em;
+}
+
+.dropdown-menu {
+	background-color: black;
+	color: white;
+}
+
+.dropdown-menu li {
+	color: white;
+	font-size: 1.2em;
+}
+
+p {
+	word-wrap: break-word;
 }

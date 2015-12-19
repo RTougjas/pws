@@ -5,6 +5,7 @@ class FrontPage extends CI_Controller {
 
 	function __construct() {
 		parent::__Construct();
+		$this->load->model(array('MenuModel'));
 	}
 
 	public function index()
@@ -28,6 +29,14 @@ class FrontPage extends CI_Controller {
 		
 		$this->load->view('templates/header');
 		$this->load->view('front_page');
+		$this->load->view('templates/footer');
+	}
+	
+	public function displayMenu($location_id) {
+		
+		$data = $this->MenuModel->getAllMenuItems($location_id);
+		$this->load->view('templates/header');
+		$this->load->view('v_menu', $data);
 		$this->load->view('templates/footer');
 	}
 }

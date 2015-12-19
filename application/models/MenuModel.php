@@ -37,6 +37,23 @@ class MenuModel extends CI_Model {
 		$this->db->delete('menuItem', $item_id);
 	}
 	
+	/**
+	*	return all menu items, according to given location. 
+	*
+	*	@param $location_id		describes which location item you want to get. 
+	*
+	*/
+	public function getAllMenuItems($location_id) {
+		
+		$this->db->select('*');
+		$this->db->from('menuItems');
+		$this->db->where('location', $location_id);
+		$query = $this->db->get();
+		
+		return $query->result();
+		
+	}
+	
 }
 
 ?>

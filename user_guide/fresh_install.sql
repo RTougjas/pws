@@ -9,9 +9,11 @@ KEY `ci_sessions_timestamp` (`timestamp`)
 
 CREATE TABLE menuItem (
     ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL UNIQUE,
+    name VARCHAR(50) NOT NULL,
     price DECIMAL(5,2) NOT NULL,
-    category INTEGER);
+    category INTEGER NOT NULL,
+	location INTEGER NOT NULL,
+	CONSTRAINT uc_item UNIQUE(name, location));
 	
 CREATE TABLE category (
 	ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -30,7 +32,8 @@ CREATE TABLE reservation (
     updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     due TIMESTAMP NOT NULL,
 	cancelled TINYINT(1) DEFAULT 0,
-	completed TINYINT(1) DEFAULT 0);
+	completed TINYINT(1) DEFAULT 0),
+	location INTEGER NOT NULL);
 	
 CREATE TABLE reservationItems (
 	ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -57,21 +60,15 @@ CREATE TABLE employee (
     lastName VARCHAR(25),
     title VARCHAR(25),
     phone VARCHAR(15),
-    email VARCHAR(100));
-	
-ALTER TABLE employee ADD COLUMN location INTEGER NOT NULL;
+    email VARCHAR(100),
+	location INTEGER NOT NULL);
 
 ALTER TABLE employee ADD CONSTRAINT fk_employee_has_location
 	FOREIGN KEY (location) REFERENCES location(ID) ON UPDATE CASCADE ON DELETE RESTRICT;
-	
-ALTER TABLE menuItem ADD COLUMN
-	location INTEGER NOT NULL;
-	
-ALTER TABLE reservation ADD COLUMN
-	location INTEGER NOT NULL;
-	
+			
 ALTER TABLE menuItem ADD CONSTRAINT fk_menuitem_has_location
 	FOREIGN KEY (location) REFERENCES location(ID) ON UPDATE CASCADE ON DELETE RESTRICT;
 	
 ALTER TABLE reservation ADD CONSTRAINT fk_reservation_has_location
 	FOREIGN KEY (location) REFERENCES location(ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+	
