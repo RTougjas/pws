@@ -6,20 +6,20 @@ class MenuModel extends CI_Model {
 	public function __construct() {
 		$this->load->database();
 	}
-	/*
-		Insert menuitems to the database. 
-	
-		@param	$data	An array containing key-value pairs.
+	/**
+	*	Insert menuitems to the database. 
+	*
+	*	@param	$data	An array containing key-value pairs.
 	*/
 	public function insertMenuItem($data) {
 		
 		$this->db->insert('menuItem', $data);
 	}
-	/*
-		Update menuitem table.
-	
-		@param	$item_id	ID of menuitem to be updated.
-		@param	$data		Array of values that need to be updated. 
+	/**
+	*	Update menuitem table.
+	*
+	*	@param	$item_id	ID of menuitem to be updated.
+	*	@param	$data		Array of values that need to be updated. 
 	*/
 	public function updateMenuItem($item_id, $data) {
 		
@@ -27,10 +27,28 @@ class MenuModel extends CI_Model {
 		$this->db->update('menuItem', $data);
 	}
 	
-	/*
-		Delete item from menu table.
+	/**
+	*	Returns one item details. 
+	*
+	*	@param $item_id	ID of menuItem that is queried. 
+	*
+	*	@return array:= menuitem_id, menuitem_name, menuitem_price, category_id, category_name, 						location_id, location_name.
+	*/
+	public function getMenuItem($item_id) {
+			
+		$this->db->select('*');
+		$this->db->from('v_menu_items');
+		$this->db->where('menuitem_id', $item_id);
+		$query = $this->db->get();
 		
-		@param	$item_id	Id of item to be deleted.
+		return $query->result();
+		
+	}
+	
+	/**
+	*	Delete item from menu table.
+	*	
+	*	@param	$item_id	Id of item to be deleted.
 	*/
 	public function deleteMenuItem($item_id) {
 		

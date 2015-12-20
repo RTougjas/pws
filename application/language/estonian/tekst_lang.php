@@ -16,7 +16,13 @@ $lang['info_voru'] = "<p>Ränduri külalistemajas on 10 numbrituba, 25 voodikoht
 $lang['info_tartu'] = "<p>Ränduri pubi avatud Tasku keskuses. Sissepääs läbi Rademari või bussijaamast.</p><p>Avatud alates 20. mai 2011. Pubis on kohti 140 inimesele. Ingo ja laudade broneerimine telefonil 123456.</p>";
 
 
-
+//Broneeringu väljad
+$lang['first_name'] = "Eesnimi";
+$lang['last_name'] = "Perekonnanimi";
+$lang['phone'] = "Telefon";
+$lang['email'] = "Email";
+$lang['additional_notes'] = "Märkused";
+$lang['people'] = "Inimeste arv";
 
 // rahaühiku märk
 $lang['euro'] = "€";

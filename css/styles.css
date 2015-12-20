@@ -1,7 +1,7 @@
 body {
-	background-color:black;
+	background-color:white;
 	font-size:1.9em;
-	color: white;
+	color: black;
 
 }
 
@@ -21,7 +21,7 @@ body {
 	border: 0;
 	border-radius: 0;
 	box-shadow: 0;
-	background-color: black;
+	background-color: white;
 }
 
 .navbar-nav li {
@@ -30,7 +30,7 @@ body {
 }
 
 .dropdown-menu {
-	background-color: black;
+	background-color: white;
 	color: white;
 }
 
@@ -44,10 +44,8 @@ p {
 }
 
 .list-group-item {
-	background-color: black;
+	background-color: white;
 	border: 0;
 	border-radius: 0;
 	box-shadow: 0;
 }
-
-

@@ -6,6 +6,8 @@ class FrontPage extends CI_Controller {
 	function __construct() {
 		parent::__Construct();
 		$this->load->model(array('MenuModel'));
+		$this->load->library(array('form_validation'));
+		$this->load->helper('language');
 	}
 
 	public function index()
@@ -42,10 +44,20 @@ class FrontPage extends CI_Controller {
 		$this->load->view('templates/footer');
 	}
 	
+	public function displayMenuItem($menuItem_id) {
+		
+		$this->$data['menu_item'] = $this->MenuModel->getMenuItem($menuItem_id);
+		
+		$this->load->view('v_book_table', $this->$data);
+	}
+	
 	public function bookTable($location_id) {
 		
+		$data['menu_items'] = $this->MenuModel->getAllMenuItems($location_id);
+		$data['categories'] = $this->MenuModel->getCategories($location_id);
+				
 		$this->load->view('templates/header');
-		$this->load->view('v_book_table');
+		$this->load->view('v_book_table', $data);
 		$this->load->view('templates/footer');
 		
 		
