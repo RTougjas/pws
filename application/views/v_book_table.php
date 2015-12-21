@@ -1,11 +1,12 @@
 <?php $locationID = $this->session->userdata( 'location' );?>
 <div class="col lg-3 col-md-4 col-sm-3 col-xs-2"></div>
 <div class="col lg-6 col-md-4 col-sm-6 col-xs-8">
-		<?php if (strlen(validation_errors()) > 0) { ?>
-			<div class="alert alert-danger" role="alert">
-			<?php echo validation_errors(); ?>
-			</div> 
-		<?php } ?>
+	<?php echo validation_errors(); ?>
+	<?php if ( strlen($this->session->flashdata('success') ) > 0) { ?>
+		<div class="alert alert-success" role="alert">
+			<?php echo $this->session->flashdata('success'); ?>
+		</div>
+	<?php } ?>
 	<?php if( $locationID == 1 ) { ?>
 		<?php echo form_open('Book/table/'.$locationID)?>
 		<div class="row">
@@ -32,8 +33,8 @@
 	    			<input type="text" class="form-control" name="people" value="<?php echo set_value('people');?>" placeholder="<?php echo $this->lang->line('people')?>">
 	 	   		</div>
 		  		<div class="form-group">
-		  			<label for="text"><?php echo $this->lang->line('additional_notes')?></label>
-					<textarea class="form-control" type="text" rows="5" name="additional_notes"  placeholder="<?php echo $this->lang->line('additional_notes')?>" ><?php echo set_value('additional_notes');?></textarea>
+		  			<label for="text"><?php echo $this->lang->line('notes')?></label>
+					<textarea class="form-control" type="text" rows="5" name="notes"  placeholder="<?php echo $this->lang->line('notes')?>" ><?php echo set_value('notes');?></textarea>
 		    	</div>
 				<?php for( $i = 0; $i < sizeOf($categories); $i++ ) { ?>
 					<div class="panel-group">

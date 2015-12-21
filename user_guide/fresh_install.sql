@@ -88,3 +88,6 @@ ALTER TABLE reservation ADD CONSTRAINT fk_reservation_has_location
 ALTER TABLE category ADD CONSTRAINT fk_category_has_general
 	FOREIGN KEY (general) REFERENCES generalCategory(ID) ON UPDATE CASCADE ON DELETE RESTRICT;
 	
+alter table reservation add column notes VARCHAR(150);
+
+ALTER TABLE reservation ADD COLUMN people INTEGER NOT NULL;

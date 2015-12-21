@@ -7,6 +7,7 @@ class FrontPage extends CI_Controller {
 		parent::__Construct();
 		$this->load->model(array('MenuModel'));
 		$this->load->library(array('form_validation'));
+		$this->form_validation->set_error_delimiters('<div class="alert alert-danger" role="alert">', '</div>');
 		$this->load->helper('language');
 	}
 
