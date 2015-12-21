@@ -18,7 +18,6 @@ class FrontPage extends CI_Controller {
 		$this->load->view('templates/header');
 		$this->load->view('front_page', $data);
 		$this->load->view('templates/footer');
-		
 	}
 	
 	public function loadLocation($locationID) {
@@ -47,9 +46,9 @@ class FrontPage extends CI_Controller {
 	
 	public function displayMenuItem($menuItem_id) {
 		
-		$this->$data['menu_item'] = $this->MenuModel->getMenuItem($menuItem_id);
+		$data['menu_item'] = $this->MenuModel->getMenuItem($menuItem_id);
 		
-		$this->load->view('v_book_table', $this->$data);
+		$this->load->view('v_book_table', $data);
 	}
 	
 	public function bookTable($location_id) {
@@ -67,6 +66,13 @@ class FrontPage extends CI_Controller {
 		
 		$this->load->view('templates/header');
 		$this->load->view('v_feedback');
+		$this->load->view('templates/footer');
+	}
+	
+	public function login() {
+		
+		$this->load->view('templates/header');
+		$this->load->view('v_login');
 		$this->load->view('templates/footer');
 	}
 }

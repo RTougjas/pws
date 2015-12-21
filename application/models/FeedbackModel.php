@@ -18,6 +18,16 @@ class FeedbackModel extends CI_Model {
 		
 	}
 	
+	/**
+	*	Deletes feedback from table
+	*
+	*	@param	$feedback_id	To select, which feedback to be deleted. 
+	*/
+	public function deleteFeedback($feedback_id) {
+		$this->db->where('id', $feedback_id);
+		$this->db->delete('feedback');
+	}
+	
 	
 }
 
