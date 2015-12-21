@@ -37,21 +37,22 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['form_validation_required']		= '{field} on kohustuslik.';
+$lang['form_validation_required']		= '<b>{field}</b> on kohustuslik.';
 $lang['form_validation_isset']			= 'The {field} field must have a value.';
-$lang['form_validation_valid_email']		= 'The {field} field must contain a valid email address.';
+$lang['form_validation_valid_email']		= '<b>{field}</b> peab olema korrektselt sisestatud.';
 $lang['form_validation_valid_emails']		= 'The {field} field must contain all valid email addresses.';
 $lang['form_validation_valid_url']		= 'The {field} field must contain a valid URL.';
 $lang['form_validation_valid_ip']		= 'The {field} field must contain a valid IP.';
-$lang['form_validation_min_length']		= 'The {field} field must be at least {param} characters in length.';
-$lang['form_validation_max_length']		= 'The {field} field cannot exceed {param} characters in length.';
+$lang['form_validation_min_length']		= '<b>{field}</b> on valesti sisestatud.';
+$lang['form_validation_max_length']		= '<b>{field}</b> on valesti sisestatud.';
+$lang['form_validation_interval']		= '<b>{field}</b> pole korrektne.';
 $lang['form_validation_exact_length']		= '{field} peab olema täpselt {param} märki pikk.';
 $lang['form_validation_alpha']			= 'The {field} field may only contain alphabetical characters.';
 $lang['form_validation_alpha_numeric']		= 'The {field} field may only contain alpha-numeric characters.';
 $lang['form_validation_alpha_numeric_spaces']	= 'The {field} field may only contain alpha-numeric characters and spaces.';
 $lang['form_validation_alpha_dash']		= 'The {field} field may only contain alpha-numeric characters, underscores, and dashes.';
-$lang['form_validation_numeric']		= 'The {field} field must contain only numbers.';
-$lang['form_validation_is_numeric']		= 'The {field} field must contain only numeric characters.';
+$lang['form_validation_numeric']		= '<b>{field}</b> peab sisaldama ainult numbreid';
+$lang['form_validation_is_numeric']		= '<b>{field}</b> tohib sisaldada ainult numbreid';
 $lang['form_validation_integer']		= 'The {field} field must contain an integer.';
 $lang['form_validation_regex_match']		= 'The {field} field is not in the correct format.';
 $lang['form_validation_matches']		= 'The {field} field does not match the {param} field.';

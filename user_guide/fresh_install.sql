@@ -57,6 +57,17 @@ CREATE TABLE generalCategory (
 	ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	name VARCHAR(15) NOT NULL);
 	
+CREATE TABLE feedback(
+    ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+   	firstName VARCHAR(15) NOT NULL, 
+    lastName VARCHAR(30),
+    phone VARCHAR(15),
+    email VARCHAR(50), 
+    notes VARCHAR(150) NOT NULL,
+	location INTEGER NOT NULL);
+	
+alter table feedback add CONSTRAINT uc_feedback UNIQUE (firstName, notes, location);
+
 alter table category add CONSTRAINT uc_category UNIQUE(name, location);
 
 ALTER TABLE category add constraint fk_category_has_location

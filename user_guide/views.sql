@@ -11,3 +11,12 @@ FROM category INNER JOIN
 location ON category.location = location.ID
 INNER JOIN generalCategory
 ON category.general = generalCategory.ID;
+
+CREATE VIEW v_reservation_details AS
+select reservation.id AS reservation_id, reservation.firstName as first_name, reservation.lastName AS last_name, reservation.phone AS phone, reservation.email AS email, reservation.updated AS updated, reservation.due AS aeg, reservation.notes AS notes, reservation.people AS people, reservation.location AS location, location.name AS location_name, location.aadress AS location_address,
+reservationItems.ID AS reservationItem_id, reservationItems.menuItem AS reservation_menuItem, menuItem.name AS menuItem, menuItem.price AS menuItem_price, reservationItems.amount AS reservationItem_amount
+FROM reservation INNER JOIN 
+location ON reservation.location = location.ID INNER JOIN
+reservationItems ON reservation.ID = reservationItems.reservation
+INNER JOIN menuItem ON
+menuItem.ID = reservationItems.menuItem;

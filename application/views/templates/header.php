@@ -56,7 +56,7 @@
 							</ul>
 						</li>
 				<?php } ?>
-				<li><a href="<?php $locationID = $this->session->userdata('location'); echo site_url("/FrontPage/loadLocation/$locationID");?>"><?php echo $this->lang->line('tagasiside');?></a></li>
+				<li><a href="<?php echo site_url("/FrontPage/giveFeedBack/$locationID");?>"><?php echo $this->lang->line('tagasiside');?></a></li>
       		</ul>
 
     </div> <!-- collapse navbar-collapse -->

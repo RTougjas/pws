@@ -7,20 +7,12 @@ class ReservationModel extends CI_Model {
 		$this->load->database();
 	}
 	
-	/**
-	*	@return	ID of last entry in database. It is concurrent safe. 
-	*/
-	public function lastReservationID() {
-		//$this->db->select('LAST_INSERT_ID()');
-		//$query = $this->db->get();
-		//return $query->result();
-	}
-	
+
 	/**
 	*	Inserts all the data, which is represented by an array to the reservation table. 
 	*
 	*	@param	$values		An array of key-value pairs. 
-	*
+	*	@return	id of inserted reservation.
 	*/
 	public function insertReservation($values) {
 		
@@ -43,6 +35,32 @@ class ReservationModel extends CI_Model {
 		$this->db->set('menuItem', $menuItem_id);
 		$this->db->insert('reservationItems');
 		
+	}
+	
+	/**
+	*	Deletes reservation from table.
+	*
+	*	@param $reservation_id	distinguishes, which reservation to be deleted. 
+	*/
+	public function deleteReservation($reservation_id) {
+		$this->db->where('id', $reservation_id);
+		$this->db->delete('reservation');
+
+	}
+	
+	/**
+	*	Returns details of specific reservation
+	*
+	*	@param	$reservation_id	
+	*	@return	array of rows. 
+	*/
+	public function getReservation($reservation_id) {
+		$this->db->select('*');
+		$this->db->from('v_reservation_details');
+		$this->db->where('reservation_id', $reservation_id);
+		$query = $this->db->get();
+		
+		return $query->result();
 	}
 	
 }
