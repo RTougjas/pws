@@ -4,6 +4,11 @@
 $lang['aadress_voru']	= 'Jüri 36, Võru';
 $lang['aadress_tartu']	= 'Turu 2, tartu';
 
+//Kasutajakonto
+$lang['username'] = "Kasutajanimi";
+$lang['password'] = "parool";
+$lang['password_req'] = "Parool*";
+
 /* 
 ==========================
 	Väljade nimetused
@@ -21,7 +26,7 @@ $lang['broneering_laud'] = "Broneeri laud";
 $lang['broneering_tuba'] = "Broneeri tuba";
 $lang['toad'] = "Numbritoad";
 
-//Broneeringu lehe väljad
+//Sisestusväljade labelid
 $lang['first_name'] = "Eesnimi";
 $lang['first_name_req'] = "Eesnimi*";
 $lang['last_name'] = "Perekonnanimi";
@@ -50,6 +55,8 @@ $lang['feedback_success'] = "Aitäh, et jagasite meiega oma kogemust";
 $lang['euro'] = "€";
 $lang['btn_broneeri'] = "Broneeri";
 $lang['btn_tagasiside'] = "Esita tagasiside";
+$lang['btn_login'] = "Logi sisse";
+$lang['btn_create_user'] = "Loo kasutaja";
 
 //Info tekst
 $lang['info_voru'] = "<p>Ränduri külalistemajas on 10 numbrituba, 25 voodikohta. Luksuslikud toad on sisustatud erinevate maade stiilis. Külalistemaja toad on renoveeritud aastal 2012.</p><p>I korruse pubis on kohti 80 inimesele. Turismiauhind PARIM SISEKUJUNDUS.</p><p>Maja ehitatud kivist ja kaetud puitvoodriga. Avatud aastast 2003. Pubi uuendatud veebruaris 2009.</p>";

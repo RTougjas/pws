@@ -24,6 +24,11 @@ body {
 	background-color: white;
 }
 
+#pin_field {
+	padding-top:5em;
+	padding-bottom:2em;
+}
+
 .navbar-nav li {
 	margin-left:0.5em;
 	margin-right:0.3em;
@@ -48,4 +53,12 @@ p {
 	border: 0;
 	border-radius: 0;
 	box-shadow: 0;
+}
+
+.btn-pin {
+	max-width:15em;
+	min-width:10em;
+	max-height:7em;
+	min-height:5em;
+	margin:0.2em;
 }

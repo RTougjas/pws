@@ -20,3 +20,11 @@ location ON reservation.location = location.ID INNER JOIN
 reservationItems ON reservation.ID = reservationItems.reservation
 INNER JOIN menuItem ON
 menuItem.ID = reservationItems.menuItem;
+
+CREATE VIEW v_users AS
+select users.id AS user_id, users.first_name, users.last_name, users.email, groups.id AS group_id, groups.name, groups.description from 
+users 
+INNER JOIN users_groups
+ON users.id = users_groups.user_id
+INNER JOIN groups
+ON users_groups.group_id = groups.id;
