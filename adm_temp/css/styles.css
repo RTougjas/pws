@@ -1,0 +1,64 @@
+body {
+	background-color:white;
+	font-size:1.9em;
+	color: black;
+
+}
+
+.navbar  {
+	border: 0;
+	background-color: black;
+	opacity: 0.9;
+	padding-bottom:2.5em;
+	margin-bottom:2em;
+}
+
+#welcome_page_logo {
+	padding-top: 5%;
+}
+
+#welcome_page_logo_thumbnail {
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0;
+	background-color: white;
+}
+
+#pin_field {
+	padding-top:5em;
+	padding-bottom:2em;
+}
+
+.navbar-nav li {
+	margin-left:0.5em;
+	margin-right:0.3em;
+}
+
+.dropdown-menu {
+	background-color: white;
+	color: white;
+}
+
+.dropdown-menu li {
+	color: white;
+	font-size: 1.5em;
+}
+
+p {
+	word-wrap: break-word;
+}
+
+.list-group-item {
+	background-color: white;
+	border: 0;
+	border-radius: 0;
+	box-shadow: 0;
+}
+
+.btn-pin {
+	max-width:15em;
+	min-width:10em;
+	max-height:7em;
+	min-height:5em;
+	margin:0.2em;
+}
