@@ -3,16 +3,22 @@
 
 <div class="container">
 	<div class="row">
-		<div class="text-center">
-			<div class="col lg-4 col-md-4 col-sm-4 col-xs-12"></div>
-			<div class="col lg-4 col-md-4 col-sm-4 col-xs-12">
-				<br>
+			<div class="col lg-6 col-md-6 col-sm-6 col-xs-12">
 				<?php echo validation_errors(); ?>
 				<?php if ( strlen($this->session->flashdata('success') ) > 0) { ?>
 					<div class="alert alert-success" role="alert">
 						<?php echo $this->session->flashdata('success'); ?>
 					</div>
 				<?php } ?>
+				<h1>
+					<?php if ( strlen($title) > 0) { ?>
+						<span class="label label-info"><?php echo $title; ?>
+						<small>
+							<?php echo ' '.$this->session->userdata('identity'); ?>
+						</small>
+						</span>
+					<?php } ?>
+				</h1>
 				<br>
 				<form>
 		  			<div class="form-group">
@@ -31,8 +37,7 @@
 					<br>
 				</form>
 			</div>
-			<div class="col lg-4 col-md-4 col-sm-4 col-xs-12"></div>
-		</div>
+			<div class="col lg-6 col-md-6 col-sm-6 col-xs-12"></div>
 	</div>
 </div>	
 <?php echo form_close();?>

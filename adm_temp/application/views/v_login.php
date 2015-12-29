@@ -29,7 +29,7 @@
 	    				<input type="text" class="form-control" name="username" placeholder="<?php echo $this->lang->line('username')?>">
 	  	  			</div>
 	  	  			<div class="form-group">
-	    				<label for="password"><?php echo $this->lang->line('last_name_req')?></label>
+	    				<label for="password"><?php echo $this->lang->line('password_req')?></label>
 	    				<input type="password" class="form-control" name="password" placeholder="<?php echo $this->lang->line('password')?>">
 	 	   			</div>
 					<button type="submit" class="btn btn-success btn-block"><?php echo $this->lang->line('btn_login');?></button>
@@ -39,58 +39,4 @@
 			<div id="pin_field">&nbsp</div>
 		</div>
 	</div>
-	<br>
-	<div class="row">
-		<div class="text-center">
-	  		<button type="button" class="btn btn-info btn-pin" onClick="selectNumber(1)">
-	  			<h3>1<br><small>&nbsp</small></h3>
-	  		</button>
-	  		<button type="button" class="btn btn-info btn-pin" onClick="selectNumber(2)">
-	  			<h3>2<br><small>abc</small></h3>
-	  		</button>
-	  		<button type="button" class="btn btn-info btn-pin" onClick="selectNumber(3)">
-	  			<h3>3<br><small>def</small></h3>
-	  		</button>
-		</div>
-	</div>
-	<div class="row">
-		<div class="text-center">
-	  		<button type="button" class="btn btn-info btn-pin" onClick="selectNumber(4)">
-	  			<h3>4<br><small>ghi</small></h3>
-	  		</button>
-	  		<button type="button" class="btn btn-info btn-pin" onClick="selectNumber(5)">
-	  			<h3>5<br><small>jkl</small></h3>
-	  		</button>
-	  		<button type="button" class="btn btn-info btn-pin" onClick="selectNumber(6)">
-	  			<h3>6<br><small>mno</small></h3>
-	  		</button>
-		</div>
-	</div>
-	<div class="row">
-		<div class="text-center">
-	  		<button type="button" class="btn btn-info btn-pin" onClick="selectNumber(7)">
-	  			<h3>7<br><small>pqrs</small></h3>
-	  		</button>
-	  		<button type="button" class="btn btn-info btn-pin" onClick="selectNumber(8)">
-	  			<h3>8<br><small>tuv</small></h3>
-	  		</button>
-	  		<button type="button" class="btn btn-info btn-pin" onClick="selectNumber(9)">
-				<h3>9<br><small>wxyz</small></h3>
-			</button>
-		</div>
-	</div>
-	<div class="row">
-		<div class="text-center">
-  			<button type="button" class="btn btn-danger btn-pin" onClick="clearSilk('1')">
-  				<h3><span class="glyphicon glyphicon-remove" aria-hidden="true"></span><br><small></small></h3>
-  			</button>
-			<button type="button" class="btn btn-info btn-pin" onClick="selectNumber(0)">
-				<h3>0<br><small></small></h3>
-			</button>
-			<button type="button" class="btn btn-success btn-pin" onClick="sendSilk()">
-				<h3><span class="glyphicon glyphicon-ok" aria-hidden="true"></span><br><small></small></h3>
-			</button>
-		</div>
-	</div>
-	<br>
 </div>

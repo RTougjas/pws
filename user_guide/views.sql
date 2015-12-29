@@ -22,9 +22,19 @@ INNER JOIN menuItem ON
 menuItem.ID = reservationItems.menuItem;
 
 CREATE VIEW v_users AS
-select users.id AS user_id, users.first_name, users.last_name, users.email, groups.id AS group_id, groups.name, groups.description from 
+select users.id AS user_id, users.first_name, users.last_name, users.email, users.phone, groups.id AS group_id, groups.name, groups.description from 
 users 
 INNER JOIN users_groups
 ON users.id = users_groups.user_id
 INNER JOIN groups
 ON users_groups.group_id = groups.id;
+
+
+CREATE VIEW v_users_locations AS
+SELECT users.id AS user_id , users.first_name, users.last_name, location.ID AS location_id , location.name AS location_name , location.aadress AS location_adderss FROM
+users INNER JOIN users_groups
+ON users.id = users_groups.user_id
+INNER JOIN groups_locations
+ON users_groups.group_id = groups_locations.group_id
+INNER JOIN location
+ON groups_locations.location_id = location.ID;

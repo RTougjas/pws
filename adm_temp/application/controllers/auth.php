@@ -412,7 +412,7 @@ class Auth extends CI_Controller {
 	// create a new user
 	function create_user()
     {
-        $this->data['title'] = "Create User";
+        $this->data['title'] = "Loo kasutaja";
 
         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
         {

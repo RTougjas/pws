@@ -22,12 +22,14 @@ class User extends CI_Controller {
 		{
 			// redirect them to the login page
 			redirect('User/login', 'refresh');
-		}
+		}/*
+		
 		elseif (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
 		{
 			// redirect them to the home page because they must be an administrator to view this
 			return show_error('You must be an administrator to view this page.');
 		}
+		*/
 		else
 		{
 			// set the flash data error message if there is one
@@ -36,9 +38,11 @@ class User extends CI_Controller {
 			//list the users
 			
 			$this->data['users'] = $this->ManagementModel->getUsers();
+			$this->session->set_userdata('location', $this->ManagementModel->getUserLocations($this->session->userdata('user_id')));
+			$this->data['title'] = "Kasutajad";
 			
 			$this->load->view('templates/header');
-			$this->load->view('v_management', $this->data);
+			$this->load->view('v_users', $this->data);
 			$this->load->view('templates/footer');
 
 		}
@@ -61,7 +65,7 @@ class User extends CI_Controller {
 			$password = $this->input->post('password');
 			
 			if ( $this->ion_auth->login($this->input->post('username'), $this->input->post('password')) ) {
-			       	
+			    
 				redirect('/User');
 					
 			} else {
@@ -87,6 +91,8 @@ class User extends CI_Controller {
 	// change password
 	function change_password()
 	{
+		$this->data['title'] = "Parooli muutmine";
+		
 		$this->form_validation->set_rules('old_password', $this->lang->line('change_password_validation_old_password_label'), 'required');
 		$this->form_validation->set_rules('new_password', $this->lang->line('change_password_validation_new_password_label'), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[new_password_confirm]');
 		$this->form_validation->set_rules('new_password_confirm', $this->lang->line('change_password_validation_new_password_confirm_label'), 'required');
@@ -392,8 +398,16 @@ class User extends CI_Controller {
 	// create a new user
 	function create_user()
     {
-        $this->data['title'] = "Create User";
-		$this->data['groups'] = $this->ManagementModel->getLocations();
+		
+		if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+		{
+			// redirect them to the home page because they must be an administrator to view this
+			return show_error('You must be an administrator to view this page.');
+			
+		}
+		
+        $this->data['title'] = "Uue kasutaja loomine";
+		$this->data['groups'] = $this->ManagementModel->getGroups();
 
         if (!$this->ion_auth->logged_in() || !$this->ion_auth->is_admin())
         {

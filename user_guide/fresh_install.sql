@@ -66,6 +66,14 @@ CREATE TABLE feedback(
     notes VARCHAR(150) NOT NULL,
 	location INTEGER NOT NULL);
 	
+
+	
+CREATE TABLE groups_locations (
+	ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    group_id INTEGER NOT NULL,
+    location_id INTEGER NOT NULL,
+	CONSTRAINT uc_groups_locations UNIQUE(group_id, location_id));
+	
 alter table feedback add CONSTRAINT uc_feedback UNIQUE (firstName, notes, location);
 
 alter table category add CONSTRAINT uc_category UNIQUE(name, location);
@@ -102,3 +110,12 @@ ALTER TABLE category ADD CONSTRAINT fk_category_has_general
 alter table reservation add column notes VARCHAR(150);
 
 ALTER TABLE reservation ADD COLUMN people INTEGER NOT NULL;
+
+ALTER TABLE groups_locations ADD CONSTRAINT fk_location_exists
+	FOREIGN KEY (location_id) REFERENCES location(ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+	
+ALTER TABLE groups_locations ADD CONSTRAINT fk_group_exists
+	FOREIGN KEY (group_id) REFERENCES groups(ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+	
+
+

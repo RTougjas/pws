@@ -7,7 +7,7 @@
 		<link href="<?php echo base_url("bootstrap/css/bootstrap.min.css");?>" rel="stylesheet">
 		<link href="<?php echo base_url("css/styles.css");?>" rel="stylesheet">
 		<?php $this->lang->load( 'tekst_lang', 'estonian' )?>
-		<?php $locationID = $this->session->userdata( 'location' );?>
+		<?php $location = $this->session->userdata( 'location' );?>
     </head>
 <body>	
 	<div class="container">
@@ -26,22 +26,34 @@
 					</div>
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav">
-							<li><a href="<?php echo site_url('user/create_user'); ?>">Link <span class="sr-only"></span></a></li>
-							<li><a href="<?php echo site_url('user/create_user'); ?>">Link</a></li>
-							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-								<ul class="dropdown-menu">
-									<li><a href="#">Action</a></li>
-									<li><a href="#">Another action</a></li>
-									<li><a href="#">Something else here</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#">Separated link</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#">One more separated link</a></li>
-								</ul>
-							</li>
-						</ul>
 						<ul class="nav navbar-nav navbar-right">
+							<?php for( $i = 0; $i < sizeOf($location); $i++) { ?>
+								<?php if( $location[$i]->location_id == 1 ) { ?>
+									<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tartu<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="<?php echo site_url('Menu/displayMenuItems/'.$location[$i]->location_id);?>">Menüü</a></li>
+											<li><a href="#"></a></li>
+											<li><a href="#">Something else here</a></li>
+											<li role="separator" class="divider"></li>
+											<li><a href="#">Separated link</a></li>
+											<li role="separator" class="divider"></li>
+											<li><a href="#">One more separated link</a></li>
+										</ul>
+									</li>
+								<?php } else if ( $location[$i]->location_id == 2) { ?>
+									<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Võru<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="#">Menüü</a></li>
+											<li><a href="#"></a></li>
+											<li><a href="#">Toad</a></li>
+											<li role="separator" class="divider"></li>
+											<li><a href="#">Separated link</a></li>
+											<li role="separator" class="divider"></li>
+											<li><a href="#">One more separated link</a></li>
+										</ul>
+									</li>
+								<?php } ?>
+							<?php } ?>
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $this->session->userdata('identity'); ?><span class="caret"></span></a>
 								<ul class="dropdown-menu">
