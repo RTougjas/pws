@@ -75,8 +75,10 @@ CREATE TABLE groups_locations (
 CREATE TABLE photo (
 	ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	menuItem INTEGER,
-	location VARCHAR(200) NOT NULL,
+	url VARCHAR(200) NOT NULL,
 	public BIT(1) NOT NULL);
+	
+alter table photo add COLUMN location INTEGER NOT NULL;
 	
 alter table feedback add CONSTRAINT uc_feedback UNIQUE (firstName, notes, location);
 
@@ -124,5 +126,6 @@ ALTER TABLE groups_locations ADD CONSTRAINT fk_group_exists
 ALTER TABLE photo ADD CONSTRAINT fk_photo_has_item
 	FOREIGN KEY (menuItem) REFERENCES menuItem(id) ON DELETE RESTRICT ON UPDATE CASCADE;
 	
-
+ALTER TABLE photo ADD CONSTRAINT fk_photo_has_location
+	FOREIGN KEY (location) REFERENCES location(ID) ON DELETE RESTRICT ON UPDATE CASCADE;
 
