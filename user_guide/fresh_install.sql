@@ -65,14 +65,18 @@ CREATE TABLE feedback(
     email VARCHAR(50), 
     notes VARCHAR(150) NOT NULL,
 	location INTEGER NOT NULL);
-	
-
-	
+		
 CREATE TABLE groups_locations (
 	ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     group_id INTEGER NOT NULL,
     location_id INTEGER NOT NULL,
 	CONSTRAINT uc_groups_locations UNIQUE(group_id, location_id));
+	
+CREATE TABLE photo (
+	ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	menuItem INTEGER,
+	location VARCHAR(200) NOT NULL,
+	public BIT(1) NOT NULL);
 	
 alter table feedback add CONSTRAINT uc_feedback UNIQUE (firstName, notes, location);
 
@@ -116,6 +120,9 @@ ALTER TABLE groups_locations ADD CONSTRAINT fk_location_exists
 	
 ALTER TABLE groups_locations ADD CONSTRAINT fk_group_exists
 	FOREIGN KEY (group_id) REFERENCES groups(ID) ON UPDATE CASCADE ON DELETE RESTRICT;
+	
+ALTER TABLE photo ADD CONSTRAINT fk_photo_has_item
+	FOREIGN KEY (menuItem) REFERENCES menuItem(id) ON DELETE RESTRICT ON UPDATE CASCADE;
 	
 
 
