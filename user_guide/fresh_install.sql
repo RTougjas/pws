@@ -128,4 +128,6 @@ ALTER TABLE photo ADD CONSTRAINT fk_photo_has_item
 	
 ALTER TABLE photo ADD CONSTRAINT fk_photo_has_location
 	FOREIGN KEY (location) REFERENCES location(ID) ON DELETE RESTRICT ON UPDATE CASCADE;
+	
+alter table photo add column filename VARCHAR(100) NOT NULL;
 
