@@ -78,6 +78,11 @@ CREATE TABLE photo (
 	url VARCHAR(200) NOT NULL,
 	public BIT(1) NOT NULL);
 	
+CREATE TABLE gallery (
+	ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	menuItem INTEGER,
+	photo INTEGER NOT NULL);
+	
 alter table photo add COLUMN location INTEGER NOT NULL;
 	
 alter table feedback add CONSTRAINT uc_feedback UNIQUE (firstName, notes, location);
@@ -130,4 +135,16 @@ ALTER TABLE photo ADD CONSTRAINT fk_photo_has_location
 	FOREIGN KEY (location) REFERENCES location(ID) ON DELETE RESTRICT ON UPDATE CASCADE;
 	
 alter table photo add column filename VARCHAR(100) NOT NULL;
+
+alter table menuItem ADD COLUMN primaryPhoto INTEGER;
+
+alter table menuItem ADD COLUMN description VARCHAR(300);
+
+alter table menuItem ADD COLUMN gallery INTEGER;
+
+ALTER TABLE gallery ADD CONSTRAINT fk_gallery_has_photos FOREIGN KEY (photo)
+REFERENCES photo(ID) ON UPDATE CASCADE ON DELETE CASCADE;
+
+alter table menuItem ADD CONSTRAINT fk_primaryphoto_is_photo
+FOREIGN KEY (primaryPhoto) REFERENCES photo(ID) ON UPDATE CASCADE ON DELETE CASCADE;
 
