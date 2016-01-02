@@ -1,5 +1,5 @@
 CREATE VIEW v_menu_items AS
-SELECT menuItem.ID AS menuItem_id, menuItem.name AS menuItem_name, price AS menuItem_price, category.ID AS category_id, category.name AS category_name, generalCategory.id AS general_id, generalCategory.name AS general_name, location.ID AS location_id, location.name AS location_name FROM
+SELECT menuItem.ID AS menuItem_id, menuItem.name AS menuItem_name, price AS menuItem_price,menuItem.description AS menuItem_description, category.ID AS category_id, category.name AS category_name, generalCategory.id AS general_id, generalCategory.name AS general_name, location.ID AS location_id, location.name AS location_name FROM
 menuItem INNER JOIN
 category ON menuItem.category = category.ID
 INNER JOIN location
